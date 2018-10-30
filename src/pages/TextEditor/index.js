@@ -139,8 +139,6 @@ class TextEditor extends PureComponent {
       this.setState({ remainingDelay: remainingDelay - 1 });
     } else if (remainingAlterations > 0) {
       this.setState({ remainingAlterations: remainingAlterations - 1 });
-    } else {
-      this.clearTimer();
     }
   };
 

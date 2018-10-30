@@ -41,9 +41,13 @@ class Welcome extends PureComponent {
         ModalProps={{ disableBackdropClick: true }}
         className="welcome-drawer"
       >
-        <Typography variant="h2" color="primary" align="center">
+        <br />
+
+        <Typography variant="h2" color="secondary" align="center">
           FORTY TWO
         </Typography>
+        <br />
+        <br />
         <TextField
           id="name"
           label="Nickname"
@@ -74,7 +78,7 @@ class Welcome extends PureComponent {
         </TextField>
         <br />
         <Button
-          variant="contained"
+          variant="outlined"
           color="primary"
           onClick={() => handleEnterGame(name, players)}
           disabled={!validPlayer}
