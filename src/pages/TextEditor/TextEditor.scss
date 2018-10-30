@@ -1,0 +1,73 @@
+@import 'styles/variables.scss';
+
+.text-editor {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  opacity: 0.85;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  font-size: 0.75rem;
+  background-color: $background-color !important;
+  width: 100%;
+  height: 75%;
+  padding: 4rem 1rem 0 1rem !important;
+  overflow-y: scroll !important;
+  color: white;
+
+  code,
+  textarea {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  code {
+    position: absolute;
+    pointer-events: none;
+    white-space: pre-wrap;
+    padding: inherit;
+  }
+  textarea {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    line-height: 1.5;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 0.75rem;
+    background-color: $background-color;
+    color: $background-color;
+    caret-color: white;
+    resize: none;
+  }
+}
+
+.tabs {
+  position: fixed;
+  margin-top: -2.5rem;
+  left: 0;
+  width: calc(100% - 1rem);
+  background-color: black;
+}
+
+.iframe-test-env {
+  visibility: hidden;
+  position: fixed;
+  width: 0;
+  height: 0;
+  border: 0;
+  pointer-events: none;
+}
+
+.game-warning-display {
+  position: fixed;
+  left: 0;
+  top: calc(50vh - 3rem);
+  height: 4rem;
+  line-height: 4rem;
+  width: 100%;
+  text-align: center;
+  background: black;
+}

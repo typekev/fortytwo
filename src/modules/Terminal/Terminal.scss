@@ -1,0 +1,53 @@
+@import 'styles/variables.scss';
+
+.terminal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  opacity: 0.85;
+  margin: 0 !important;
+  border: none !important;
+  font-size: 0.75rem;
+  background-color: black !important;
+  width: 100%;
+  height: 25%;
+  padding: 2.5rem 0.5rem 0.5rem 0.5rem !important;
+  overflow-y: scroll !important;
+  white-space: normal !important;
+
+  code,
+  textarea {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  code {
+    position: absolute;
+    pointer-events: none;
+    white-space: pre-line;
+    word-break: break-word;
+    padding: inherit;
+  }
+  textarea {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    line-height: 1.5;
+    border: 0;
+    outline: 0;
+    font-size: 0.75rem;
+    background-color: black;
+    color: $background-color;
+    caret-color: white;
+    resize: none;
+    padding: 0;
+  }
+}
+
+.valid-answer {
+  color: $secondary-color;
+}
+
+.invalid-answer {
+  color: red;
+}

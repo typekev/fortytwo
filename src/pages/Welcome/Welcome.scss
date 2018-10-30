@@ -1,0 +1,16 @@
+.welcome-drawer {
+  > div {
+    min-width: 40vw;
+    opacity: 0.9;
+    padding: 2rem;
+  }
+}
+
+@media (max-device-width: 767px) {
+  .welcome-drawer {
+    > div {
+      min-width: 100vw;
+      padding: 1rem;
+    }
+  }
+}

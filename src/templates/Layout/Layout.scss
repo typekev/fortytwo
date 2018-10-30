@@ -1,14 +1,20 @@
+@import 'styles/variables.scss';
+
 .App {
+  width: 100%;
+  height: 100%;
   text-align: center;
 }
 
-.App-logo {
+.react-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
 }
 
-.App-header {
-  background-color: #282c34;
+.app-header {
+  position: absolute;
+  background-color: $background-color;
+  min-width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,8 +24,16 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.app-bar {
+  background-color: $secondary-color-dark;
+  position: absolute;
+  height: 3.5rem;
+  width: 100%;
+  z-index: 1;
+  button {
+    float: left;
+    margin-top: 0.625rem;
+  }
 }
 
 @keyframes App-logo-spin {

@@ -1,0 +1,12 @@
+.counter {
+  position: fixed;
+  top: 0.75rem;
+  right: 1.5rem;
+  z-index: 1;
+  color: white;
+  font-family: monospace;
+
+  h1 {
+    margin: 0;
+  }
+}
