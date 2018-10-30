@@ -1,4 +1,4 @@
-## [Forty Two - code for fun!](https://forty-two.netlify.com/)
+# [Forty Two - code for fun!](https://forty-two.netlify.com/)
 
 Code against your friends!
 
@@ -6,9 +6,10 @@ The goal is to see who can complete their objective first. You each get forty tw
 Try to outwit your component by using their own code against them!
 
 By the way, don't delay; after 30 seconds your alterations will start to dwindle by the second ;)
+
 Have fun!
 
-Play here: https://forty-two.netlify.com/
+Play Forty Two at https://forty-two.netlify.com/
 
 ## Open source :)
 
