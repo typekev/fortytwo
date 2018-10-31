@@ -105,7 +105,7 @@ class Terminal extends PureComponent {
     const rows = terminalContent.split(/\r|\r\n|\n/).length;
 
     return (
-      <pre className="terminal">
+      <pre className="terminal language-bash">
         {currentTab === 0 && (
           <Fragment>
             <TextArea
