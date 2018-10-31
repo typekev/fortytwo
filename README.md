@@ -46,9 +46,9 @@ Deployed with [Netlify](https://www.netlify.com).
 
 <div id="branding">
 <a href="https://www.netlify.com">
-<img src="https://www.netlify.com/img/global/badges/netlify-dark.svg"/>
+<img src="https://www.netlify.com/img/global/badges/netlify-dark.svg" height="51" width="114"/>
 </a>
 <a href="https://firebase.google.com">
-<img src="https://firebase.google.com/downloads/brand-guidelines/PNG/logo-built_black.png"/>
+<img src="https://firebase.google.com/downloads/brand-guidelines/SVG/logo-built_black.svg" height="51" width="114"/>
 </a>
 </div>
