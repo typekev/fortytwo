@@ -16,9 +16,29 @@ import setWinner from 'api/firebase/setWinner';
 import './TextEditor.scss';
 
 const initialState = {
-  textEditorContent: `var solveChallenge = function(x) {
-    // Type your solution here
-}`,
+  textEditorContent: `
+// RULES:
+//
+// Read the OBJECTIVE and write function to solve the given problem.
+// Each time you press a key (or each second after 30 seconds) your remaining alterations will 
+// be reduced by one.
+// Once you exhaust your alterations you will no longer be able to type.
+// You will see your remaining alterations in the top right corner of the screen, you start with 42.
+//
+// When you finish writing your solution (or run out of alterations) you can end your turn
+// by running the following sequence of commands in the TERMINAL
+// git add .
+// git commit -m '[message]'
+// git push
+//
+// After you push, you will see the results of your code under OUTPUT
+//
+// If your solution is correct you win!
+
+var solveChallenge = function(x) {
+    // Type your solution here!
+}
+`,
   room: {
     id: 0,
     full: false,
