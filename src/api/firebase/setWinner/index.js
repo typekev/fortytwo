@@ -5,13 +5,15 @@ export default function setWinner(playerId = '', roomId = '', then = winner => {
   db.settings({
     timestampsInSnapshots: true,
   });
-  const roomRef = db.collection('rooms').doc(roomId);
-  roomRef
-    .update({ winner: playerId })
-    .then(() => {
-      then(playerId);
-    })
-    .catch(error => {
-      console.error('Error getting documents: ', error);
-    });
+  if (playerId && roomId) {
+    const roomRef = db.collection('rooms').doc(roomId);
+    roomRef
+      .update({ winner: playerId })
+      .then(() => {
+        then(playerId);
+      })
+      .catch(error => {
+        console.error('Error getting documents: ', error);
+      });
+  }
 }

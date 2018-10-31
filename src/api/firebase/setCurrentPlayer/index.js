@@ -5,13 +5,15 @@ export default function setCurrentPlayer(playerId = '', roomId = '', then = play
   db.settings({
     timestampsInSnapshots: true,
   });
-  const roomRef = db.collection('rooms').doc(roomId);
-  roomRef
-    .update({ currentPlayer: playerId })
-    .then(() => {
-      then(playerId);
-    })
-    .catch(error => {
-      console.error('Error getting documents: ', error);
-    });
+  if (playerId && roomId) {
+    const roomRef = db.collection('rooms').doc(roomId);
+    roomRef
+      .update({ currentPlayer: playerId })
+      .then(() => {
+        then(playerId);
+      })
+      .catch(error => {
+        console.error('Error getting documents: ', error);
+      });
+  }
 }

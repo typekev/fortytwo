@@ -13,6 +13,8 @@ import observeRoom from 'api/firebase/observeRoom';
 import setCurrentPlayer from 'api/firebase/setCurrentPlayer';
 import setWinner from 'api/firebase/setWinner';
 
+import { removeJSCommentsRegex } from 'constants/expressions';
+
 import './TextEditor.scss';
 
 const initialState = {
@@ -63,8 +65,14 @@ class TextEditor extends PureComponent {
     if (!playerId) {
       this.exitRoom();
     }
+
+    window.addEventListener('beforeunload', ev => {
+      this.handleQuitGame();
+    });
+
     getRoom(playerId, this.enterRoom);
     getChallenge(this.handleSetChallenge);
+
     Prism.highlightAll();
   }
 
@@ -78,9 +86,7 @@ class TextEditor extends PureComponent {
     } = this.state;
     Prism.highlightAll();
     if (hash === '#quitGame') {
-      const newWinner = players.filter(otherPlayerId => otherPlayerId !== playerId);
-      setWinner(newWinner[0], id);
-      this.exitRoom();
+      this.handleQuitGame(playerId, id, players);
     }
     if (!playerId) {
       this.exitRoom();
@@ -96,15 +102,24 @@ class TextEditor extends PureComponent {
   }
 
   componentWillUnmount() {
-    // const { playerId } = this.props;
-    // const {
-    //   room: { id, players, winner },
-    // } = this.state;
-    // if (!winner) {
-    //   const newWinner = players.filter(otherPlayerId => otherPlayerId !== playerId);
-    //   setWinner(newWinner[0], id);
-    // }
+    const { playerId } = this.props;
+    const {
+      room: { id, players, winner },
+    } = this.state;
+    if (!winner) {
+      this.handleQuitGame(playerId, id, players);
+    }
   }
+
+  handleQuitGame = (
+    playerId = this.props.playerId,
+    roomId = this.state.room.id,
+    players = this.state.room.players,
+  ) => {
+    const newWinner = players.filter(otherPlayerId => otherPlayerId !== playerId);
+    setWinner(newWinner[0], roomId);
+    this.exitRoom();
+  };
 
   clearState = () => {
     this.setState(initialState);
@@ -221,17 +236,21 @@ class TextEditor extends PureComponent {
   handleRunCode = () => {
     const { textEditorContent, testCases } = this.state;
     const iFrameTestEnv = document.getElementById('iFrameTestEnv').contentWindow;
+    iFrameTestEnv.src = 'about:blank';
     const iFrameTestEnvHead = iFrameTestEnv.document.getElementsByTagName('head')[0];
     const iFrameTestEnvScriptTag = iFrameTestEnv.document.createElement('script');
-    iFrameTestEnvScriptTag.innerText = `${textEditorContent}`;
+    iFrameTestEnvScriptTag.innerText = `${textEditorContent
+      .replace(removeJSCommentsRegex, '')
+      .trim()}`;
     iFrameTestEnvScriptTag.type = 'text/javascript';
     iFrameTestEnvHead.appendChild(iFrameTestEnvScriptTag);
 
+    const { solveChallenge } = iFrameTestEnv;
+
     const testCaseResultsList = testCases.map(testCase => {
-      const { solveChallenge } = iFrameTestEnv;
       const testFunc = () => {
         try {
-          return eval('JSON.stringify(solveChallenge(...testCase.parameterList))');
+          return JSON.stringify(solveChallenge(...testCase.parameterList));
         } catch (error) {
           return error;
         }
