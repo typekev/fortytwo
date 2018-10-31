@@ -74,7 +74,6 @@ class Terminal extends PureComponent {
     const { terminalPrefix } = this.state;
     if (event.keyCode === 9) {
       event.preventDefault();
-      console.log(event.target.value);
       if (event.target.value === terminalPrefix) {
         const { didAdd, didCommit, commitMessage } = this.state;
         const terminalContent = didCommit

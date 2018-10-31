@@ -2,7 +2,6 @@ import { Firebase } from 'lib/firebase';
 import setCurrentPlayer from 'api/firebase/setCurrentPlayer';
 
 export default function getRoom(playerId = '', then = () => {}) {
-  console.log('getRoom');
   const db = Firebase.firestore();
   db.settings({
     timestampsInSnapshots: true,
@@ -25,7 +24,7 @@ export default function getRoom(playerId = '', then = () => {}) {
         });
       })
       .catch(error => {
-        console.log('Error getting documents: ', error);
+        console.error('Error getting documents: ', error);
       });
   }, 1000);
 }

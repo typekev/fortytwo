@@ -25,7 +25,6 @@ export const playerCreated = functions.firestore
           // no room was found, create a new room with the player
           const players = [playerId];
           const roomRef = db.collection('rooms').doc();
-          console.log(player.players, playerId, players, roomRef.id);
           trs.set(roomRef, { full: false, size: player.players, players });
           roomId = roomRef.id;
         }

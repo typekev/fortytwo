@@ -4,7 +4,6 @@ import getChallengeCount from 'api/firebase/getSettings/getChallengeCount';
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 export default function getChallenge(then = challenge => {}) {
-  console.log('getChallenge');
   const db = Firebase.firestore();
   db.settings({
     timestampsInSnapshots: true,
@@ -21,7 +20,7 @@ export default function getChallenge(then = challenge => {}) {
         });
       })
       .catch(error => {
-        console.log('Error getting challenge: ', error);
+        console.error('Error getting challenge: ', error);
       });
   });
 }

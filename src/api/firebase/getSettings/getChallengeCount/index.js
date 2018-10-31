@@ -9,10 +9,9 @@ export default function getChallengeCount(then = count => {}) {
   challengesSettingsRef
     .get()
     .then(challengesSettings => {
-      console.log('challengesSettings.challengesCount', challengesSettings.data());
       then(challengesSettings.data().challengesCount);
     })
     .catch(error => {
-      console.log('Error getting challengesCount: ', error);
+      console.error('Error getting challengesCount: ', error);
     });
 }

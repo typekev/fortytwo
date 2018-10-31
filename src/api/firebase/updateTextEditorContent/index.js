@@ -13,10 +13,8 @@ export default function updateTextEditorContent(roomId = '', textEditorContent =
       },
       { merge: true },
     )
-    .then(() => {
-      console.log('Success!');
-    })
+    .then(() => {})
     .catch(error => {
-      console.log('Error getting documents: ', error);
+      console.error('Error getting documents: ', error);
     });
 }

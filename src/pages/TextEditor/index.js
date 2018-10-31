@@ -107,7 +107,6 @@ class TextEditor extends PureComponent {
   };
 
   enterRoom = room => {
-    console.log('textEditorContent', this.props);
     const { textEditorContent } = this.state;
     this.setState(
       {
@@ -224,8 +223,6 @@ class TextEditor extends PureComponent {
     );
 
     const isAnswerValid = testCaseResultsList.toString() === testCaseSolutionsList.toString();
-
-    console.log('test cases', testCaseResultsList, testCaseSolutionsList, isAnswerValid);
 
     this.setState({ isAnswerValid }, () => {
       if (isAnswerValid) {

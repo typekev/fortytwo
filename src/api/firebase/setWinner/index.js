@@ -12,6 +12,6 @@ export default function setWinner(playerId = '', roomId = '', then = winner => {
       then(playerId);
     })
     .catch(error => {
-      console.log('Error getting documents: ', error);
+      console.error('Error getting documents: ', error);
     });
 }

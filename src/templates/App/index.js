@@ -28,7 +28,6 @@ class App extends PureComponent {
 
   render() {
     const { playerId, didPlayAgain } = this.state;
-    console.log('class App extends Component', playerId);
     return (
       <Router>
         <Layout>

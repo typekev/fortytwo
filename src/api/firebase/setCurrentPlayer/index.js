@@ -9,10 +9,9 @@ export default function setCurrentPlayer(playerId = '', roomId = '', then = play
   roomRef
     .update({ currentPlayer: playerId })
     .then(() => {
-      console.log('success updating room with current player');
       then(playerId);
     })
     .catch(error => {
-      console.log('Error getting documents: ', error);
+      console.error('Error getting documents: ', error);
     });
 }

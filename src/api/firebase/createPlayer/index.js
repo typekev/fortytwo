@@ -10,7 +10,6 @@ export default function createPlayer(name = 'Casey', players = 2, then) {
     players,
   });
   playerRef.then(snap => {
-    console.log(snap);
     then({ playerId: snap.id, playerName: name });
   });
 }
