@@ -17,7 +17,7 @@ import './TextEditor.scss';
 
 const initialState = {
   textEditorContent: `var solveChallenge = function(x) {
-  return "lol";
+    // Type your solution here
 }`,
   room: {
     id: 0,
