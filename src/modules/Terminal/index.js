@@ -16,7 +16,7 @@ class Terminal extends PureComponent {
     outputContent: '',
     didAdd: false,
     didCommit: false,
-    currentTab: 0,
+    currentTab: 1,
   };
 
   componentDidMount() {
