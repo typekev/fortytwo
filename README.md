@@ -40,7 +40,15 @@ Bootstrapped with [Create React App](https://github.com/facebook/create-react-ap
 
 Styled with [material-ui](https://material-ui.com/)
 
+Real time database and server side Functions by [Firebase](https://firebase.google.com).
+
 Deployed with [Netlify](https://www.netlify.com).
+
+<div id="branding">
 <a href="https://www.netlify.com">
 <img src="https://www.netlify.com/img/global/badges/netlify-dark.svg"/>
 </a>
+<a href="https://firebase.google.com">
+<img src="https://firebase.google.com/downloads/brand-guidelines/PNG/logo-built_black.png"/>
+</a>
+</div>
